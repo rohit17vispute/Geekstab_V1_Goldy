@@ -27,6 +27,8 @@ app.post("/api/submit-inquiry", async (req, res) => {
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
   const smtpFrom = process.env.SMTP_FROM || smtpUser;
+  // Mailbox that receives all contact-form inquiries.
+  const inquiryTo = process.env.INQUIRY_TO || "info@geekstab.com";
 
   // If SMTP configuration is missing, send a demo response with instructions
   if (!smtpHost || !smtpUser || !smtpPass) {
@@ -129,7 +131,7 @@ app.post("/api/submit-inquiry", async (req, res) => {
     // 3. Draft email notification for the Geekstab Administration
     const adminMailOptions = {
       from: `"Geekstab Lead Generation" <${smtpFrom}>`,
-      to: smtpUser, // Sends to system administrator
+      to: inquiryTo, // Sends inquiry to the Geekstab mailbox (info@geekstab.com by default)
       subject: `🔥 NEW COLLABORATION REQUEST: ${company} (${name})`,
       html: `
         <div style="background-color: #111827; color: #ffffff; font-family: sans-serif; padding: 24px;">
