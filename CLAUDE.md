@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Single-page marketing/landing site for **Geekstab**, an enterprise Salesforce consulting firm. It's a React 19 SPA served by a custom Express server that also exposes one API endpoint for the contact form. Originally scaffolded as a Google AI Studio app (see `metadata.json`, `.env.example`), though the Gemini API is not currently wired into the app code.
+Single-page marketing/landing site for **Geekstab**, an enterprise Salesforce consulting firm. It's a React 19 SPA served by a custom Express server that also exposes one API endpoint for the contact form.
 
 ## Commands
 
@@ -41,4 +41,4 @@ Tailwind CSS v4 via `@tailwindcss/vite` (no `tailwind.config.js`). The theme is 
 
 - `@/*` path alias maps to the repo root (configured in both `tsconfig.json` and `vite.config.ts`).
 - TS is `noEmit` / `allowImportingTsExtensions` — imports use explicit `.tsx` extensions (e.g. `import App from './App.tsx'`).
-- `.env` is gitignored (`.env*` except `.env.example`). SMTP secrets (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`) and `GEMINI_API_KEY` go there; see `.env.example`.
+- `.env` is gitignored (`.env*` except `.env.example`). SMTP secrets (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`) and `INQUIRY_TO` go there; see `.env.example`.

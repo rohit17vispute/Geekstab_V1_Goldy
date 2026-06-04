@@ -1,20 +1,29 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Geekstab
 
-# Run and deploy your AI Studio app
+Marketing and lead-generation website for **Geekstab** — enterprise Salesforce delivery, architecture, AI, and release-governance consulting.
 
-This contains everything you need to run your app locally.
 
-View your app in AI Studio: https://ai.studio/apps/bf6b862c-a1f2-4da3-b995-96e4a6d0b230
 
-## Run Locally
+## Run locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js 18+
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   ```bash
+   npm install
+   ```
+2. Copy `.env.example` to `.env` and fill in your SMTP mailbox details (host, port, user, password). Without these, the contact form runs in simulated mode and no email is sent.
+3. Start the dev server:
+   ```bash
+   npm run dev
+   ```
+   The site runs at http://localhost:3000.
+
+## Build & deploy
+
+```bash
+npm run build   # builds the client to dist/ and bundles the server to dist/server.cjs
+npm start       # runs the production server (set NODE_ENV=production)
+```
+
+For production, provide the SMTP variables as environment variables rather than committing a `.env` file.
